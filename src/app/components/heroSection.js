@@ -57,7 +57,7 @@ I love to do coding. I've been learning new skills every day. I am very committe
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-10">
           <button className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-white font-semibold overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl">
            <a
-  href="https://drive.google.com/file/d/1pr4egrilPOzca0etAWtw8SdjKKNb5diW/view?usp=sharing"
+  href="https://drive.google.com/file/d/1gezFBkCGtFxuVFAiGTj0F_FsD_4tY4tq/view"
   target="_blank"
   rel="noopener noreferrer"
   className="relative z-10 flex items-center gap-2 group text-white hover:underline"

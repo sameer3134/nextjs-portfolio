@@ -13,7 +13,7 @@ export const Navigation = ({ activeSection, sectionsRef }) => {
         </div>
         
         <div className="hidden md:flex space-x-6">
-          {['Home', 'About', 'Skills', 'Work'].map((item, index) => (
+          {['Home', 'About', 'Skills', 'Project'].map((item, index) => (
             <button
               key={item}
               onClick={() => sectionsRef.current[index]?.scrollIntoView({ behavior: 'smooth' })}
