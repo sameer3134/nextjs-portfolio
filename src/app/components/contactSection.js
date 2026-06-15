@@ -1,21 +1,21 @@
 import { ArrowRight, Github, Instagram, Linkedin, Mail } from "lucide-react";
 import { useDarkMode } from "./context/context";
 
-export const ContactSection = () => {
+export const ContactSection = ({ sectionsRef }) => {
   const { darkMode } = useDarkMode();
 
   return (
-    <section className={`py-20 ${darkMode ? 'bg-gray-900' : 'bg-white'}`}>
+    <section ref={el => sectionsRef.current[4] = el} className={`py-20 ${darkMode ? 'bg-gray-900' : 'bg-white'}`}>
       <div className="max-w-4xl mx-auto px-6 text-center">
         <h2 className={`text-5xl md:text-6xl font-bold mb-8 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-          Let's{' '}
+          {"Let's"}{' '}
           <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             Connect
           </span>
         </h2>
         
         <p className={`text-xl mb-12 ${darkMode?"text-white":"text-gray-700"}`}>
-          Ready to bring your ideas to life? Let's create something extraordinary together.
+          Ready to bring your ideas to life? {"Let's"} create something extraordinary together.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">

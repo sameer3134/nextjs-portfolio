@@ -57,7 +57,7 @@ useEffect(() => {
       <AboutSection  sectionsRef={sectionsRef}/>
       <SkillsSection activeSection={activeSection} sectionsRef={sectionsRef}/>
       <ProjectsSection  sectionsRef={sectionsRef}/>
-      <ContactSection />
+      <ContactSection sectionsRef={sectionsRef} />
     </div>
   );
 };

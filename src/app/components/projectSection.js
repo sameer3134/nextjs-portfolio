@@ -7,12 +7,22 @@ import recipe from "../../../public/assets/recipe.png"
 import romanelli from "../../../public/assets/romanelli.png"
 import template from "../../../public/assets/template.png"
 import taskReminder from "../../../public/assets/taskReminder.png"
+import ragAgent from "../../../public/assets/rag_agent.png"
 import Image from "next/image";
 
 export const ProjectsSection = ({ sectionsRef }) => {
   const { darkMode } = useDarkMode();
 
   const projects = [
+    {
+      title: "RAG Agent",
+      description: "Built a self-correcting Retrieval-Augmented Generation (RAG) pipeline utilizing a LangGraph state machine to grade document relevance and automatically reformulate search queries upon retrieval failure. Enforced cryptographic SHA256 file-deduplication to protect vector store integrity and engineered a metadata-driven multi-tenant isolation layer to guarantee strict data privacy between individual user collections.",
+      tech: ["Python", "LangGraph", "ChromaDB", "OpenAI API", "Arize Phoenix", "Ragas", "Streamlit"],
+      image: ragAgent,
+      gradient: "from-purple-500 to-indigo-600",
+      website: "https://agentic-rag12.streamlit.app/",
+      github: "https://github.com/sameer3134/agentic-rag-langgrap"
+    },
     {
       title: "Shopping-Site",
       description: "Developed an e-commerce platform featuring OAuth-based user authentication, real-time inventory management, and order processing, powered by Firebase for backend services and secure hosting.",
@@ -52,14 +62,14 @@ export const ProjectsSection = ({ sectionsRef }) => {
     
     {
       title: "Packet Sniffing",
-      description: "I have completed this project in IIT-Roorkee. Packet Sniffer is used for capturing and monitor the network traffic through the installation of software on our device.It inspects and extract the valuable information such as passwords, IP addresses etc.",
+      description: "Developed a low-level packet sniffer in C using network socket programming to capture and monitor raw network traffic in real-time. Decoded TCP/UDP/IP protocols at the network and transport layers of the OSI model to inspect headers and capture network metrics.",
       tech: ["Socket Programming","C","TCP/UDP"],
       image: chatify,
       gradient: "from-orange-500 to-red-600",
       website: "https://github.com/sameer3134/Internship",
-      github: "hhttps://github.com/sameer3134/Internship"
+      github: "https://github.com/sameer3134/Internship"
     },
-      {
+    {
       title: "Food-recipe",
       description: "We use api to extract recipes. On the basis of ingredient search , it will show all the recipe can make from it. I used Reactjs in designing this website",
       tech: ["React.js","Tailwind CSS"],
@@ -68,7 +78,7 @@ export const ProjectsSection = ({ sectionsRef }) => {
       website: "https://msfoodrecipe.netlify.app/",
       github: "https://github.com/sameer3134/food-recipe"
     },
-      {
+    {
       title: "Website Template",
       description: "I design a static website of consultancy services company",
       tech: ["React.js","Tailwind CSS"],

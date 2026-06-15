@@ -1,75 +1,128 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, MapPin, Download } from 'lucide-react';
 import { useDarkMode } from './context/context';
-import profile from "../../../public/assets/profile.jpg"
+import profile from "../../../public/assets/profile.jpg";
 import Image from 'next/image';
 
 export const HeroSection = ({ sectionsRef }) => {
   const { darkMode } = useDarkMode();
+
+  const techStack = ['FastAPI', 'React', 'Next.JS', 'AWS', 'Docker', 'Kafka', 'Redis', 'LangChain', 'LangGraph'];
+
   return (
-    <section 
+    <section
       ref={el => sectionsRef.current[0] = el}
-      className="min-h-screen relative overflow-hidden flex items-center justify-center"
-    //   style={{ transform: `translateY(${scrollY * 0.5}px)` }}
+      className={`min-h-screen relative overflow-hidden flex flex-col items-center justify-center px-6 pb-6 ${darkMode ? 'bg-gray-950' : 'bg-gray-50'}`}
     >
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-pink-900/20"></div>
-        <div 
-          className="absolute top-1/6 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse"
-        //   style={{ transform: `translate(${scrollY * 0.2}px, ${scrollY * 0.1}px)` }}
-        />
-        <div 
-          className="absolute bottom-1/6 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse"
-        //   style={{ transform: `translate(${-scrollY * 0.15}px, ${scrollY * 0.2}px)` }}
-        />
+      {/* Ambient Background Orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-purple-500/20 blur-[120px]" />
+        <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-pink-500/20 blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-blue-500/10 blur-[100px]" />
       </div>
 
-      <div className="relative z-10 text-center max-w-5xl mx-auto px-6">
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto">
+
         {/* Profile Image */}
-        <div className="relative mb-12 mt-30">
-          <div className="w-48 h-48 mx-auto relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-full animate-spin-slow"></div>
-            <div className={`absolute inset-2 rounded-full ${darkMode ? 'bg-gray-900' : 'bg-white'}`}></div>
+        <div className="relative mb-10 mt-24">
+          <div className="w-44 h-44 md:w-52 md:h-52 relative">
+            {/* Spinning gradient ring */}
+            <div
+              className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 animate-spin"
+              style={{ animationDuration: '6s' }}
+            />
+            <div className={`absolute inset-1 rounded-full ${darkMode ? 'bg-gray-950' : 'bg-gray-50'}`} />
             <Image
               src={profile}
-              alt="Profile"
-              width={100}
-              height={100}
-              className="absolute inset-4 h-40 w-40 rounded-full object-cover"
+              alt="Mohd Sameer"
+              width={300}
+              height={300}
+              priority
+              className="absolute inset-3 w-[calc(100%-24px)] h-[calc(100%-24px)] rounded-full object-cover object-top"
             />
           </div>
+
+
         </div>
 
-        {/* Title */}
-        <h1 className={`text-6xl md:text-8xl font-bold mb-8 leading-tight ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-          <span className="block">Software</span>
-          <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent animate-pulse">
-            Developer
+        {/* Greeting */}
+        <p className={`text-base md:text-lg font-medium tracking-widest uppercase mb-3 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+          Hi there, I&apos;m
+        </p>
+
+        {/* Name — large gradient */}
+        <h1 className="font-black tracking-tight leading-none mb-5">
+          <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-br from-purple-500 via-pink-500 to-blue-500 bg-clip-text text-transparent">
+            Mohd Sameer
           </span>
         </h1>
 
-        <p className={`text-xl mb-12  ${!darkMode ? 'text-gray-900' : 'text-white'}  max-w-3xl mx-auto leading-relaxed`}>
-I love to do coding. I've been learning new skills every day. I am very committed to every job I take on and I like things to be done well and efficiently.
+        {/* Role */}
+        <div className={`inline-flex items-center gap-3 px-6 py-3 rounded-full border mb-8 ${darkMode
+          ? 'bg-white/5 border-white/10 text-gray-200'
+          : 'bg-black/5 border-black/10 text-gray-700'
+          }`}>
+          <span className="text-lg md:text-xl font-semibold">
+            Full-Stack, Cloud & AI Engineer
+          </span>
+        </div>
+
+        {/* Location */}
+        <div className={`flex items-center gap-1.5 mb-6 text-sm font-medium ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}>
+          <MapPin size={13} className="text-purple-400" />
+          <span>Bangalore, India · Truedax Studio</span>
+        </div>
+
+        {/* Bio */}
+        <p className={`text-base md:text-lg leading-relaxed mb-10 max-w-2xl ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+          I build high-scale systems, production-grade AI pipelines, and beautiful full-stack applications —
+          from Kafka event streams to self-correcting RAG agents on AWS.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-10">
-          <button className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-white font-semibold overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-           <a
-  href="https://drive.google.com/file/d/1gezFBkCGtFxuVFAiGTj0F_FsD_4tY4tq/view"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="relative z-10 flex items-center gap-2 group text-white hover:underline"
->
-  View My Resume
-  <ArrowRight
-    size={20}
-    className="group-hover:translate-x-1 transition-transform"
-  />
-</a>
+        <div className="flex flex-col sm:flex-row gap-4 mb-14">
+          <a
+            href="https://drive.google.com/file/d/1gezFBkCGtFxuVFAiGTj0F_FsD_4tY4tq/view"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-bold text-white bg-gradient-to-r from-purple-600 to-pink-600 shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 hover:scale-105 transition-all duration-300"
+          >
+            <Download size={18} />
+            View Resume
+            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+          </a>
+          <button
+            onClick={() => sectionsRef.current[4]?.scrollIntoView({ behavior: 'smooth' })}
+            className={`inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold border-2 transition-all duration-300 hover:scale-105 ${darkMode
+              ? 'border-gray-700 text-gray-300 hover:border-purple-500 hover:text-purple-300'
+              : 'border-gray-300 text-gray-600 hover:border-purple-500 hover:text-purple-600'
+              }`}
+          >
+            {"Let's"} Connect
           </button>
         </div>
+
+        {/* Tech Stack Pills */}
+        <div className="w-full">
+          <p className={`text-xs font-bold uppercase tracking-[0.2em] mb-4 ${darkMode ? 'text-gray-600' : 'text-gray-400'}`}>
+            Core Stack
+          </p>
+          <div className="flex flex-wrap justify-center gap-2.5">
+            {techStack.map((tech) => (
+              <span
+                key={tech}
+                className={`px-4 py-2 text-xs font-semibold rounded-full border cursor-default transition-all duration-300 hover:scale-105 hover:shadow-md ${darkMode
+                  ? 'bg-gray-900 border-gray-800 text-gray-300 hover:border-purple-500/40 hover:text-purple-300 hover:bg-purple-500/5'
+                  : 'bg-white border-gray-200 text-gray-600 shadow-sm hover:border-purple-300 hover:text-purple-600'
+                  }`}
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );
